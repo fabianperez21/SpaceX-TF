@@ -1,0 +1,5 @@
+<div class="container">
+    <app-img *ngIf="Rocket.flickr_images.length > 0" [img]="Rocket.flickr_images[0]" [alt]="Rocket.name"></app-img>
+    <h2>{{ Rocket.name }}</h2>
+    <button (click)="onShowDetail()">Detalles</button>
+</div>
