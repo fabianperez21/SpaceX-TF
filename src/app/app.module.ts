@@ -9,6 +9,7 @@ import { RocketComponent } from './components/rocket/rocket.component';
 import { RocketsComponent } from './components/rockets/rockets.component';
 import { ImgComponent } from './components/img/img.component';
 import { FormsModule } from '@angular/forms';
+import { NavComponent } from './components/nav/nav.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     RocketComponent,
     RocketsComponent,
-    ImgComponent
+    ImgComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

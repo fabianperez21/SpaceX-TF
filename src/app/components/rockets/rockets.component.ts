@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { rocket, UpdateRocketDTO } from 'src/app/models/rocket.model';
+import { CreateRocketDTO, rocket, UpdateRocketDTO } from 'src/app/models/rocket.model';
 import { RocketService } from 'src/app/services/rocket.service';
 import Swal from 'sweetalert2';
 
@@ -22,6 +22,9 @@ export class RocketsComponent implements OnInit {
   showRocketDetail = false;
   statusDetail: 'loading' | 'success' | 'error' | 'init' = 'init';
   changeView: boolean=false;
+  createRocket: boolean=true;
+  showPanel: 'createRocket' | 'showRocket' | 'updateRocket' | 'hidden' = 'hidden';
+  identi = '';
 
   constructor(
     private rocketService: RocketService
@@ -45,35 +48,41 @@ export class RocketsComponent implements OnInit {
   }
   }
 
-  onShowDetail(id: string) {
+  onShowPanel(id: string) {
     this.statusDetail = 'loading';
+    this.identi = id;
     //En caso de darle dos veces al boton
 
-    if (this.Rocket.id != '' && this.Rocket.id == id && this.showRocketDetail == true) {
+    if (this.Rocket.id != '' && this.Rocket.id == id && this.showPanel != 'hidden') {
       this.showRocketDetail = false;
-      this.changeView=false;
+      this.showPanel="showRocket";
       this.statusDetail = 'success';
       return;
     }
 
-    if (this.Rocket.id != '' && this.Rocket.id == id && this.showRocketDetail == false) {
+    if (this.Rocket.id != '' && this.Rocket.id == id && this.showPanel == 'hidden') {
       this.showRocketDetail = true;
-      this.changeView=false;
+      this.showPanel="showRocket";
       this.statusDetail = 'success';
       return;
     }
 
-    if (this.Rocket.id != '' && this.Rocket.id != id && this.showRocketDetail == true) {
+    if (this.Rocket.id != '' && this.Rocket.id != id && this.showPanel != 'hidden') {
       this.showRocketDetail = false;
-      this.changeView=false;
+      this.showPanel="showRocket";
+      this.statusDetail = 'loading';
     }
 
     this.rocketService.getRocket(id)
       .subscribe(data => {
+
         this.Rocket = data;
+        console.log(this.Rocket);
+        
         if (!this.showRocketDetail && data.id != null) {
+          this.showRocketDetail = true;
           this.statusDetail = 'success';
-          this.toogleRocketDetail();
+          this.showPanel="showRocket";
         }
       }, errorMsg => {
         this.statusDetail = 'error';
@@ -123,7 +132,22 @@ export class RocketsComponent implements OnInit {
         .subscribe(data => {
           const rocketIndex = this.rockets.findIndex(item => item.id === this.Rocket.id);
           this.rockets.splice(rocketIndex, 1, data);
-        });
-          
+        });  
   }
+
+  crearNew(rocket: rocket) {
+    this.rocketService.createRocket(rocket)
+    .subscribe(data =>{
+      this.rockets.push(data);
+    });
+  }
+
+  onShowCreate() {
+    this.showRocketDetail = true;
+  }
+
+  showRocket(){
+    
+  }
+
 }

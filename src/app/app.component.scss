@@ -8,17 +8,7 @@ $color-secundary: rgb(60, 156, 225);
   align-items: center;
   gap: 20px;
 
-  .title {
-    display: flex;
-    justify-content: center;
-    background-color: $color-secundary;
-    width: 100%;
-
-    h1 {
-      margin: 10px;
-      color: white;
-    }
-  }
+  
 }
 
 /* .btn {

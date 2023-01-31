@@ -2,7 +2,7 @@
   "rockets": [
     {
       "id": 1,
-      "name": "Falcon 12",
+      "name": "Falcon 1",
       "description": "The Falcon 1 was an expendable launch system privately developed and manufactured by SpaceX during 2006-2009. On 28 September 2008, Falcon 1 became the first privately-developed liquid-fuel launch vehicle to go into orbit around the Earth.",
       "height": 22.25,
       "country": "Republic of the Marshall Islands",
@@ -13,7 +13,7 @@
     },
     {
       "id": 2,
-      "name": "Falcon 99",
+      "name": "Falcon 9",
       "description": "Falcon 9 is a two-stage rocket designed and manufactured by SpaceX for the reliable and safe transport of satellites and the Dragon spacecraft into orbit.",
       "height": 70,
       "country": "United States",
@@ -64,6 +64,34 @@
         "https://live.staticflickr.com/65535/48954138922_9c42173f08_b.jpg",
         "https://live.staticflickr.com/65535/48953947006_313f01ec93_b.jpg"
       ]
+    },
+    {
+      "id": "6",
+      "name": "Nuevo R42",
+      "country": "Col",
+      "description": "nuevo cohete",
+      "flickr_images": [
+        "https://placeimg.com/640/480/any?random=0.2077657185333761"
+      ],
+      "height": 80
+    },
+    {
+      "id": "U7APVv7"
+    },
+    {
+      "id": "ydY_qvk"
+    },
+    {
+      "id": "Ln_NuLF"
+    },
+    {
+      "id": "w6s9bM1"
+    },
+    {
+      "id": "ZyBH31g"
+    },
+    {
+      "id": "Cg6DL8D"
     }
   ]
 }

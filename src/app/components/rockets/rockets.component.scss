@@ -72,6 +72,13 @@ $color-secundary: rgb(60, 156, 225);
         background-color: red;
       }
     }
+
+    .btn-Create{
+      &:hover {
+        border-width: 0px;
+        background-color: red;
+      }
+    }
   }
 
   .detail--text {
