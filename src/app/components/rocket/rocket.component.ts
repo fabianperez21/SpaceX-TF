@@ -17,7 +17,6 @@ export class RocketComponent implements OnInit {
     country: ' ',
     height: 0,
     flickr_images: [],
-
   };
 
   @Output() showRocket = new EventEmitter<string>();

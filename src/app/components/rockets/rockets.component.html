@@ -1,4 +1,4 @@
-<app-nav (createRocket)="onShowCreate()"> </app-nav>
+<app-nav (newRocket)="onShowCreate()"> </app-nav>
 <div class="rockets--grid">
     <app-rocket [Rocket]="Rocket" *ngFor="let Rocket of rockets" (showRocket)="onShowPanel($event)"></app-rocket>
 </div>
@@ -11,27 +11,19 @@
     </button>
 
     <div class="detail--text" [ngSwitch]="showPanel">
-        <div  class="detail--text" *ngSwitchCase="'createRocket'">
-            <div class="rocket--img">
-                <swiper [slidesPerView]="1">
-                    <ng-template swiperSlide *ngFor="let img of Rocket.flickr_images">
-                        <img [src]="img" [alt]="Rocket.name">
-                    </ng-template>
-                </swiper>
-            </div>
-            <div>
-                <h3 class="rocket--name">{{Rocket.name}}</h3>
-            </div>
-            <p class="rocket--country">{{Rocket.country}}</p>
-            <p class="rocket--description">{{Rocket.description}}</p>
-            <p class="rocket-height">Altura: {{Rocket.height}}</p>
+        <div class="detail--text" *ngSwitchCase="'createRocket'">
+            <!-- <label> CREAR NUEVO COHETE</label> -->
+            <input type="text" [(ngModel)]="Rocket.name" placeholder="Nombre del nuevo Rocket">
+            <input type="text" [(ngModel)]="Rocket.country" placeholder="Pais">
+            <textarea rows="5" cols="30" [(ngModel)]="Rocket.description" placeholder="Descripción"></textarea>
+            <label>Altura [m]:</label><input type="number" [(ngModel)]="Rocket.height">
             <div class="detail--buttons">
-                <button class="btn btn--edit" (click)="onChangeView()">
-                    Crear
+                <button class="btn" (click)="createNew(Rocket)">
+                    Guardar
                 </button>
+            </div>
         </div>
-
-        <div *ngSwitchCase="'showRocket'">
+        <div class="detail--text" *ngSwitchCase="'showRocket'">
             <div class="rocket--img">
                 <swiper [slidesPerView]="1">
                     <ng-template swiperSlide *ngFor="let img of Rocket.flickr_images">
@@ -39,42 +31,32 @@
                     </ng-template>
                 </swiper>
             </div>
-            <div>
-                <h3 class="rocket--name">{{Rocket.name}}</h3>
-            </div>
-            <p class="rocket--country">{{Rocket.country}}</p>
+            <h3 class="rocket--name">{{Rocket.name}}</h3>
+            <p class="rocket--country">Pais: {{Rocket.country}}</p>
             <p class="rocket--description">{{Rocket.description}}</p>
             <p class="rocket-height">Altura: {{Rocket.height}}</p>
             <div class="detail--buttons">
                 <button class="btn btn--edit" (click)="onChangeView()">
                     Editar
                 </button>
-                <button class="btn btn--delete"> <!-- (click)="deleteRocket()" -->
+                <button class="btn btn--delete" (click)="deleteRocket()"> <!-- (click)="deleteRocket()" -->
                     Eliminar
                 </button>
             </div>
         </div>
-
-        <div *ngSwitchCase="'updateRocket'">
-            
-                <input type="text" [(ngModel)]="Rocket.name">
-                <input type="text" [(ngModel)]="Rocket.country">
-                <textarea rows="5" cols="30" [(ngModel)]="Rocket.description"></textarea>
-                <input type="number" [(ngModel)]="Rocket.height">
-                <div class="detail--buttons">
-                    <button class="btn" (click)="backNsave()">
-                        Regresar
-                    </button>
-                </div>
-            
+        <div class="detail--text" *ngSwitchCase="'updateRocket'">
+            <input type="text" [(ngModel)]="Rocket.name" placeholder="Nombre del Rocket">
+            <input type="text" [(ngModel)]="Rocket.country" placeholder="Pais">
+            <textarea rows="5" cols="30" [(ngModel)]="Rocket.description" placeholder="Descripción"></textarea>
+            <input type="number" [(ngModel)]="Rocket.height" placeholder="Altura [m]">
+            <div class="detail--buttons">
+                <button class="btn" (click)="backNsave()">
+                    Guardar
+                </button>
+            </div>
         </div>
 
-
-
-    </div>
-
-
-    <!-- <div class="detail--buttons">
+        <!-- <div class="detail--buttons">
         <button class="btn btn--edit">
             Editar
         </button>
@@ -83,7 +65,7 @@
         </button>
     </div> -->
 
-    <!--     <div class="detail--text">
+        <!--     <div class="detail--text">
         <div>
             <h3 class="rocket--name">{{Rocket.name}}</h3>
         </div>
@@ -92,4 +74,22 @@
         <p class="rocket-height">Altura: {{Rocket.height}}</p>
     </div> -->
 
-</div>
+        <!-- <div class="rocket--img">
+        <swiper [slidesPerView]="1">
+            <ng-template swiperSlide *ngFor="let img of Rocket.flickr_images">
+                <img [src]="img" [alt]="Rocket.name">
+            </ng-template>
+        </swiper>
+    </div>
+    <div>
+        <h3 class="rocket--name">{{Rocket.name}}</h3>
+        <p class="rocket--country">{{Rocket.country}}</p>
+        <p class="rocket--description">{{Rocket.description}}</p>
+        <p class="rocket-height">Altura: {{Rocket.height}}</p>
+    </div>
+    <div class="detail--buttons">
+        <button class="btn btn--edit" (click)="onChangeView()">
+            Crear
+        </button>
+    </div> -->
+    </div>

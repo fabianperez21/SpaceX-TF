@@ -23,6 +23,7 @@ $color-secundary: rgb(60, 156, 225);
     width: auto !important;
     border-width: 0px;
     background-color: white;
+    border-color: antiquewhite;
     font-size: 2rem;
     &:hover{
       // border-radius: 100%;
@@ -82,20 +83,23 @@ $color-secundary: rgb(60, 156, 225);
   }
 
   .detail--text {
-    div {
+      margin: 5px 0px 5px 0px;
       display: flex;
       justify-content: center;
+      flex-direction: column;
 
       .rocket--name {
+        margin: 5px 0px 5px 0px;
         font-weight: bold;
         font-size: 2rem;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
       }
       .rocket--description {
         margin: 5px 0px 5px 0px;
+        
       }
-    }
-
+      
+    //background-color: mediumaquamarine;
     // display: flex;
     // flex-direction: column;
     // justify-content: center;
@@ -108,17 +112,16 @@ $color-secundary: rgb(60, 156, 225);
     // border-color: $color-secundary;
     // color: black;
     // background-color: $color-primary;
-    background-color: mediumaquamarine;
+    
     //font-size: 3rem;
-   
-    //margin: 0 auto;
-
+     //margin: 0 auto;
   }
   input{
     font-size: 1.6rem;
     margin: 8px 0px;
     padding: 5px;
     border-radius: 3px;
+   
   }
 }
 

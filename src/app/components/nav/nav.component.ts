@@ -18,18 +18,9 @@ export class NavComponent implements OnInit {
   }
 
   onShowCreate(){
+    console.log('Holaaa')
     this.newRocket.emit();
+    
   }
-/*   createNew(){
-    const rocket: CreateRocketDTO = {
-      id: '6',
-      name: 'Nuevo R',
-      country: 'Col',
-      description: 'nuevo cohete',
-      flickr_images: [`https://placeimg.com/640/480/any?random=${Math.random()}`],
-      height: 80
-    }
-    this.newRocket.emit(rocket);
-    } */
     
   }
